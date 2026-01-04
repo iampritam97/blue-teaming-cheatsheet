@@ -1,0 +1,187 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Threat Intelligence Platforms</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+  <!-- Tailwind CDN -->
+  <script src="https://cdn.tailwindcss.com"></script>
+
+  <!-- Tailwind Theme (REQUIRED) -->
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            bg: "#0f172a",
+            card: "#020617",
+            text: "#e5e7eb",
+            muted: "#94a3b8",
+            accent: "#3b82f6",
+            border: "#1e293b"
+          }
+        }
+      }
+    }
+  </script>
+</head>
+
+<body class="bg-bg text-text antialiased">
+
+  <!-- Header -->
+  <header class="sticky top-0 z-50 backdrop-blur border-b border-border bg-bg/80">
+    <div class="max-w-6xl mx-auto px-6 py-4 flex justify-between items-center">
+      <div class="flex items-center gap-2">
+        <span class="text-xl">🛡️</span>
+        <h1 class="text-sm font-semibold tracking-wide uppercase">
+          Blue Teaming Cheat Sheet
+        </h1>
+      </div>
+      <nav class="space-x-6 text-sm text-muted">
+        <a href="index.html" class="hover:text-accent transition">Home</a>
+        <a href="soc-playbooks.html" class="hover:text-accent transition">Playbooks</a>
+        <a href="malware-analysis.html" class="hover:text-accent transition">Malware</a>
+      </nav>
+    </div>
+  </header>
+
+  <!-- Content -->
+  <main class="max-w-4xl mx-auto px-6 pt-16 pb-24">
+
+    <!-- Title -->
+    <div class="mb-12">
+      <a href="index.html" class="text-accent text-sm">← Back to Home</a>
+      <h1 class="text-4xl font-semibold mt-4 mb-3">🧠 Threat Intelligence Platforms</h1>
+      <p class="text-muted max-w-2xl">
+        Platforms used by SOC and Threat Intelligence teams to correlate IOCs,
+        track threat campaigns, and understand adversary behavior.
+      </p>
+    </div>
+
+    <!-- WHEN TO USE -->
+    <section class="mb-12">
+      <h2 class="section-title">When Threat Intelligence Is Used</h2>
+      <div class="grid gap-4 sm:grid-cols-2">
+        <div class="tool-card">
+          Enrich IOCs generated from SIEM, EDR, or email security alerts
+        </div>
+        <div class="tool-card">
+          Identify whether activity is part of a known campaign
+        </div>
+        <div class="tool-card">
+          Track threat actor infrastructure and malware families
+        </div>
+        <div class="tool-card">
+          Improve detection rules and proactive threat hunting
+        </div>
+      </div>
+    </section>
+
+    <!-- OPEN TI -->
+    <section class="mb-12">
+      <h2 class="section-title">Open Threat Intelligence</h2>
+      <p class="text-muted mb-4">
+        Publicly available platforms used for IOC enrichment,
+        reputation analysis, and early threat detection.
+      </p>
+
+      <div class="grid gap-4 sm:grid-cols-2">
+        <a href="https://otx.alienvault.com" target="_blank" class="tool-card">
+          AlienVault OTX
+        </a>
+        <a href="https://www.threatminer.org" target="_blank" class="tool-card">
+          ThreatMiner
+        </a>
+        <a href="https://pulsedive.com" target="_blank" class="tool-card">
+          Pulsedive
+        </a>
+        <a href="https://ioc.one" target="_blank" class="tool-card">
+          IOC.One
+        </a>
+        <a href="https://openphish.com" target="_blank" class="tool-card">
+          OpenPhish
+        </a>
+        <a href="https://phishtank.org" target="_blank" class="tool-card">
+          PhishTank
+        </a>
+      </div>
+    </section>
+
+    <!-- CAMPAIGN & ACTOR -->
+    <section class="mb-12">
+      <h2 class="section-title">Campaign & Threat Actor Tracking</h2>
+      <p class="text-muted mb-4">
+        Platforms that provide insight into adversary techniques,
+        malware families, and long-running threat campaigns.
+      </p>
+
+      <div class="grid gap-4 sm:grid-cols-2">
+        <a href="https://attack.mitre.org" target="_blank" class="tool-card">
+          MITRE ATT&CK
+        </a>
+        <a href="https://bazaar.abuse.ch" target="_blank" class="tool-card">
+          MalwareBazaar
+        </a>
+        <a href="https://threatfox.abuse.ch" target="_blank" class="tool-card">
+          ThreatFox
+        </a>
+        <a href="https://analyze.intezer.com" target="_blank" class="tool-card">
+          Intezer
+        </a>
+      </div>
+    </section>
+
+    <!-- ANALYST NOTES -->
+    <section>
+      <h2 class="section-title">SOC Analyst Notes</h2>
+      <div class="grid gap-4">
+        <div class="tool-card">
+          Threat intelligence should be used for <strong>context</strong>,
+          not as the sole decision-making factor.
+        </div>
+        <div class="tool-card">
+          Always correlate TI findings with <strong>internal telemetry</strong>
+          (SIEM, EDR, firewall logs).
+        </div>
+        <div class="tool-card">
+          Be cautious of stale IOCs; prioritize <strong>recent sightings</strong>
+          and campaign activity.
+        </div>
+        <div class="tool-card">
+          Feed validated intelligence back into detection and hunting workflows.
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- Footer -->
+  <footer class="border-t border-border py-10 text-center text-sm text-muted">
+    © 2026 Blue Teaming Cheat Sheet · Threat Intelligence
+  </footer>
+
+  <!-- Shared Styles -->
+  <style>
+    .tool-card {
+      display: block;
+      padding: 1rem 1.25rem;
+      border-radius: 0.75rem;
+      border: 1px solid #1e293b;
+      background: #020617;
+      transition: all 0.2s ease;
+    }
+    .tool-card:hover {
+      border-color: #3b82f6;
+      box-shadow: 0 10px 30px rgba(59, 130, 246, 0.15);
+      transform: translateY(-2px);
+    }
+    .section-title {
+      font-size: 1.5rem;
+      font-weight: 600;
+      margin-bottom: 0.75rem;
+    }
+  </style>
+
+</body>
+</html>

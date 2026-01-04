@@ -1,0 +1,225 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>SOC Playbooks</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+  <!-- Tailwind CDN -->
+  <script src="https://cdn.tailwindcss.com"></script>
+
+  <!-- Tailwind Theme (REQUIRED) -->
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            bg: "#0f172a",
+            card: "#020617",
+            text: "#e5e7eb",
+            muted: "#94a3b8",
+            accent: "#3b82f6",
+            border: "#1e293b"
+          }
+        }
+      }
+    }
+  </script>
+</head>
+
+<body class="bg-bg text-text antialiased">
+
+  <!-- Header -->
+  <header class="sticky top-0 z-50 backdrop-blur border-b border-border bg-bg/80">
+    <div class="max-w-6xl mx-auto px-6 py-4 flex justify-between items-center">
+      <div class="flex items-center gap-2">
+        <span class="text-xl">🛡️</span>
+        <h1 class="text-sm font-semibold tracking-wide uppercase">
+          Blue Teaming Cheat Sheet
+        </h1>
+      </div>
+      <nav class="space-x-6 text-sm text-muted">
+        <a href="index.html" class="hover:text-accent transition">Home</a>
+        <a href="soc-playbooks.html" class="hover:text-accent transition">Playbooks</a>
+        <a href="malware-analysis.html" class="hover:text-accent transition">Malware</a>
+      </nav>
+    </div>
+  </header>
+
+  <!-- Content -->
+  <main class="max-w-4xl mx-auto px-6 pt-16 pb-24">
+
+    <!-- Title -->
+    <div class="mb-12">
+      <a href="index.html" class="text-accent text-sm">← Back to Home</a>
+      <h1 class="text-4xl font-semibold mt-4 mb-3">🚨 SOC Playbooks</h1>
+      <p class="text-muted max-w-2xl">
+        Practical, SOC-tested incident response workflows designed for
+        L1–L3 analysts during active security incidents.
+      </p>
+    </div>
+
+    <!-- PHISHING PLAYBOOK -->
+    <section class="mb-16">
+      <h2 class="section-title">Phishing Response Playbook</h2>
+      <p class="text-muted mb-6">
+        Triggered when a suspicious or malicious email is reported by a user,
+        email gateway, or SIEM alert.  
+        <span class="italic">MITRE: T1566</span>
+      </p>
+
+      <div class="grid gap-4">
+        <div class="step-card">
+          <strong>1️⃣ Initial Triage</strong><br/>
+          Review email subject, sender, and user report context.
+          Check urgency indicators (invoice, password reset, MFA alert).
+        </div>
+
+        <div class="step-card">
+          <strong>2️⃣ Header Analysis</strong><br/>
+          Analyze SPF, DKIM, DMARC results and originating IP.
+          Identify spoofing or mail relay abuse.  
+          <span class="text-muted text-sm">MITRE: T1566</span>
+        </div>
+
+        <div class="step-card">
+          <strong>3️⃣ URL & Attachment Analysis</strong><br/>
+          Detonate attachments and scan embedded URLs using sandbox
+          and reputation tools.
+        </div>
+
+        <div class="step-card">
+          <strong>4️⃣ Containment</strong><br/>
+          Block sender address, domains, URLs, and hashes across
+          email gateway, proxy, and EDR platforms.
+        </div>
+
+        <div class="step-card">
+          <strong>5️⃣ Impact Assessment</strong><br/>
+          Identify users who clicked links or opened attachments.
+          Check authentication logs for suspicious sign-ins.
+        </div>
+
+        <div class="step-card">
+          <strong>6️⃣ Recovery & Prevention</strong><br/>
+          Reset affected credentials, enable MFA if missing,
+          and update email detection rules.
+        </div>
+      </div>
+    </section>
+
+    <!-- MALWARE PLAYBOOK -->
+    <section class="mb-16">
+      <h2 class="section-title">Malware Infection Playbook</h2>
+      <p class="text-muted mb-6">
+        Triggered by EDR alerts, antivirus detections, or suspicious
+        host behavior.  
+        <span class="italic">MITRE: T1204, T1059</span>
+      </p>
+
+      <div class="grid gap-4">
+        <div class="step-card">
+          <strong>1️⃣ Alert Validation</strong><br/>
+          Confirm detection legitimacy using file hash,
+          process tree, and parent-child execution.
+        </div>
+
+        <div class="step-card">
+          <strong>2️⃣ Static & Dynamic Analysis</strong><br/>
+          Analyze file hashes using reputation platforms and
+          sandbox execution.  
+          <span class="text-muted text-sm">MITRE: T1204</span>
+        </div>
+
+        <div class="step-card">
+          <strong>3️⃣ Host Containment</strong><br/>
+          Isolate the endpoint from the network using EDR
+          while preserving forensic evidence.
+        </div>
+
+        <div class="step-card">
+          <strong>4️⃣ Process & Persistence Removal</strong><br/>
+          Kill malicious processes and remove persistence
+          mechanisms (registry, services, scheduled tasks).
+        </div>
+
+        <div class="step-card">
+          <strong>5️⃣ Lateral Movement Hunting</strong><br/>
+          Search for suspicious authentication events,
+          remote execution, and internal scanning.  
+          <span class="text-muted text-sm">MITRE: T1021</span>
+        </div>
+
+        <div class="step-card">
+          <strong>6️⃣ Recovery & Lessons Learned</strong><br/>
+          Reimage if required, patch exploited vulnerabilities,
+          and update detection logic.
+        </div>
+      </div>
+    </section>
+
+    <!-- SUSPICIOUS IP -->
+    <section>
+      <h2 class="section-title">Suspicious IP Connection Playbook</h2>
+      <p class="text-muted mb-6">
+        Triggered by firewall, proxy, IDS/IPS, or SIEM alerts
+        involving unknown or malicious IP addresses.
+      </p>
+
+      <div class="grid gap-4">
+        <div class="step-card">
+          <strong>1️⃣ Reputation & Context Check</strong><br/>
+          Identify ASN, hosting provider, country,
+          and threat reputation of the IP.
+        </div>
+
+        <div class="step-card">
+          <strong>2️⃣ Traffic Analysis</strong><br/>
+          Review logs to understand direction, protocol,
+          frequency, and affected assets.
+        </div>
+
+        <div class="step-card">
+          <strong>3️⃣ Threat Correlation</strong><br/>
+          Check if IP is associated with known malware,
+          botnets, or command-and-control infrastructure.
+        </div>
+
+        <div class="step-card">
+          <strong>4️⃣ Containment</strong><br/>
+          Block IP at firewall, proxy, or EDR level
+          if confirmed malicious.
+        </div>
+
+        <div class="step-card">
+          <strong>5️⃣ Documentation</strong><br/>
+          Record findings, affected systems,
+          and tuning recommendations.
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- Footer -->
+  <footer class="border-t border-border py-10 text-center text-sm text-muted">
+    © 2026 Blue Teaming Cheat Sheet · SOC Playbooks
+  </footer>
+
+  <!-- Shared Styles -->
+  <style>
+    .step-card {
+      padding: 1rem 1.25rem;
+      border-radius: 0.75rem;
+      border: 1px solid #1e293b;
+      background: #020617;
+    }
+    .section-title {
+      font-size: 1.5rem;
+      font-weight: 600;
+      margin-bottom: 0.5rem;
+    }
+  </style>
+
+</body>
+</html>

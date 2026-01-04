@@ -1,0 +1,208 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Incident Response Quick Cheat Sheet</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+  <!-- Tailwind CDN -->
+  <script src="https://cdn.tailwindcss.com"></script>
+
+  <!-- Tailwind Theme (REQUIRED) -->
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            bg: "#0f172a",
+            card: "#020617",
+            text: "#e5e7eb",
+            muted: "#94a3b8",
+            accent: "#3b82f6",
+            border: "#1e293b"
+          }
+        }
+      }
+    }
+  </script>
+</head>
+
+<body class="bg-bg text-text antialiased">
+
+  <!-- Header -->
+  <header class="sticky top-0 z-50 backdrop-blur border-b border-border bg-bg/80">
+    <div class="max-w-6xl mx-auto px-6 py-4 flex justify-between items-center">
+      <div class="flex items-center gap-2">
+        <span class="text-xl">🛡️</span>
+        <h1 class="text-sm font-semibold tracking-wide uppercase">
+          Blue Teaming Cheat Sheet
+        </h1>
+      </div>
+      <nav class="space-x-6 text-sm text-muted">
+        <a href="index.html" class="hover:text-accent transition">Home</a>
+        <a href="soc-playbooks.html" class="hover:text-accent transition">Playbooks</a>
+        <a href="malware-analysis.html" class="hover:text-accent transition">Malware</a>
+      </nav>
+    </div>
+  </header>
+
+  <!-- Content -->
+  <main class="max-w-4xl mx-auto px-6 pt-16 pb-24">
+
+    <!-- Title -->
+    <div class="mb-12">
+      <a href="index.html" class="text-accent text-sm">← Back to Home</a>
+      <h1 class="text-4xl font-semibold mt-4 mb-3">🚨 Incident Response Quick Cheat Sheet</h1>
+      <p class="text-muted max-w-2xl">
+        A fast, practical reference for SOC analysts to follow during
+        active security incidents.
+      </p>
+    </div>
+
+    <!-- INITIAL TRIAGE -->
+    <section class="mb-12">
+      <h2 class="section-title">Initial Triage</h2>
+      <p class="text-muted mb-4">
+        First 5–10 minutes of an alert. Goal: decide <strong>is this real?</strong>
+        and <strong>how bad is it?</strong>
+      </p>
+
+      <div class="grid gap-4 sm:grid-cols-2">
+        <div class="tool-card">
+          Identify IOC type: IP, URL, file hash, email, or user account
+        </div>
+        <div class="tool-card">
+          Validate alert severity and confidence level
+        </div>
+        <div class="tool-card">
+          Check if activity is ongoing or historical
+        </div>
+        <div class="tool-card">
+          Look for signs of exploitation or user interaction
+        </div>
+      </div>
+    </section>
+
+    <!-- INVESTIGATION -->
+    <section class="mb-12">
+      <h2 class="section-title">Investigation</h2>
+      <p class="text-muted mb-4">
+        Deep-dive analysis to understand scope, impact, and attacker behavior.
+      </p>
+
+      <div class="grid gap-4 sm:grid-cols-2">
+        <div class="tool-card">
+          Correlate IPs, domains, URLs, hashes, and email artifacts
+        </div>
+        <div class="tool-card">
+          Identify affected users, hosts, and network segments
+        </div>
+        <div class="tool-card">
+          Review authentication logs for suspicious access
+        </div>
+        <div class="tool-card">
+          Map activity to MITRE ATT&CK techniques
+        </div>
+        <div class="tool-card">
+          Look for lateral movement or privilege escalation
+        </div>
+        <div class="tool-card">
+          Determine attack timeline and entry point
+        </div>
+      </div>
+    </section>
+
+    <!-- CONTAINMENT -->
+    <section class="mb-12">
+      <h2 class="section-title">Containment</h2>
+      <p class="text-muted mb-4">
+        Stop the attack from spreading while preserving evidence.
+      </p>
+
+      <div class="grid gap-4 sm:grid-cols-2">
+        <div class="tool-card">
+          Block malicious IPs, domains, URLs, and file hashes
+        </div>
+        <div class="tool-card">
+          Isolate compromised endpoints using EDR
+        </div>
+        <div class="tool-card">
+          Disable or reset compromised user accounts
+        </div>
+        <div class="tool-card">
+          Apply temporary firewall or proxy rules if needed
+        </div>
+      </div>
+    </section>
+
+    <!-- ERADICATION & RECOVERY -->
+    <section class="mb-12">
+      <h2 class="section-title">Eradication & Recovery</h2>
+      <p class="text-muted mb-4">
+        Remove attacker presence and restore business operations safely.
+      </p>
+
+      <div class="grid gap-4 sm:grid-cols-2">
+        <div class="tool-card">
+          Remove persistence mechanisms (services, registry, scheduled tasks)
+        </div>
+        <div class="tool-card">
+          Patch exploited vulnerabilities or misconfigurations
+        </div>
+        <div class="tool-card">
+          Reimage or restore systems from clean backups if required
+        </div>
+        <div class="tool-card">
+          Monitor systems closely for reinfection
+        </div>
+      </div>
+    </section>
+
+    <!-- POST INCIDENT -->
+    <section>
+      <h2 class="section-title">Post-Incident Activities</h2>
+      <p class="text-muted mb-4">
+        Improve security posture and prevent similar incidents.
+      </p>
+
+      <div class="grid gap-4 sm:grid-cols-2">
+        <div class="tool-card">
+          Document incident timeline, root cause, and impact
+        </div>
+        <div class="tool-card">
+          Update SIEM detection rules and alert thresholds
+        </div>
+        <div class="tool-card">
+          Add new IOCs to threat intelligence platforms
+        </div>
+        <div class="tool-card">
+          Conduct lessons-learned and analyst training sessions
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- Footer -->
+  <footer class="border-t border-border py-10 text-center text-sm text-muted">
+    © 2026 Blue Teaming Cheat Sheet · Incident Response
+  </footer>
+
+  <!-- Shared Styles -->
+  <style>
+    .tool-card {
+      display: block;
+      padding: 1rem 1.25rem;
+      border-radius: 0.75rem;
+      border: 1px solid #1e293b;
+      background: #020617;
+    }
+    .section-title {
+      font-size: 1.5rem;
+      font-weight: 600;
+      margin-bottom: 0.75rem;
+    }
+  </style>
+
+</body>
+</html>

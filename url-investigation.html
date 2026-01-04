@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>URL Investigation Tools</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+  <!-- Tailwind CDN -->
+  <script src="https://cdn.tailwindcss.com"></script>
+
+  <!-- Tailwind Theme (REQUIRED) -->
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            bg: "#0f172a",
+            card: "#020617",
+            text: "#e5e7eb",
+            muted: "#94a3b8",
+            accent: "#3b82f6",
+            border: "#1e293b"
+          }
+        }
+      }
+    }
+  </script>
+</head>
+
+<body class="bg-bg text-text antialiased">
+
+  <!-- Header (SAME AS IP PAGE) -->
+  <header class="sticky top-0 z-50 backdrop-blur border-b border-border bg-bg/80">
+    <div class="max-w-6xl mx-auto px-6 py-4 flex justify-between items-center">
+      <div class="flex items-center gap-2">
+        <span class="text-xl">🛡️</span>
+        <h1 class="text-sm font-semibold tracking-wide uppercase">
+          Blue Teaming Cheat Sheet
+        </h1>
+      </div>
+      <nav class="space-x-6 text-sm text-muted">
+        <a href="index.html" class="hover:text-accent transition">Home</a>
+        <a href="soc-playbooks.html" class="hover:text-accent transition">Playbooks</a>
+        <a href="malware-analysis.html" class="hover:text-accent transition">Malware</a>
+      </nav>
+    </div>
+  </header>
+
+  <!-- Content -->
+  <main class="max-w-4xl mx-auto px-6 pt-16 pb-24">
+
+    <!-- Title -->
+    <div class="mb-12">
+      <a href="index.html" class="text-accent text-sm">← Back to Home</a>
+      <h1 class="text-4xl font-semibold mt-4 mb-3">🌐 URL Investigation Tools</h1>
+      <p class="text-muted max-w-2xl">
+        Used to analyze suspicious or malicious URLs, phishing links,
+        redirects, and hosting infrastructure.
+      </p>
+    </div>
+
+    <!-- URL Reputation -->
+    <section class="mb-12">
+      <h2 class="section-title">URL Reputation</h2>
+      <div class="grid gap-4 sm:grid-cols-2">
+        <a href="https://www.virustotal.com" class="tool-card">VirusTotal</a>
+        <a href="https://otx.alienvault.com" class="tool-card">AlienVault OTX</a>
+        <a href="https://urlhaus.abuse.ch" class="tool-card">URLHaus</a>
+        <a href="https://www.malwareurl.com" class="tool-card">MalwareURL</a>
+        <a href="https://threatfox.abuse.ch" class="tool-card">ThreatFox</a>
+        <a href="https://www.threatminer.org" class="tool-card">ThreatMiner</a>
+        <a href="https://pulsedive.com" class="tool-card">Pulsedive</a>
+        <a href="https://ioc.one" class="tool-card">IOC.One</a>
+      </div>
+    </section>
+
+    <!-- URL Scanning -->
+    <section class="mb-12">
+      <h2 class="section-title">URL Scanning & Redirection</h2>
+      <div class="grid gap-4 sm:grid-cols-2">
+        <a href="https://urlscan.io" class="tool-card">URLScan</a>
+        <a href="https://wheregoes.com" class="tool-card">WhereGoes</a>
+        <a href="https://redirectdetective.com" class="tool-card">RedirectDetective</a>
+        <a href="https://redirecttracker.com" class="tool-card">RedirectTracker</a>
+      </div>
+    </section>
+
+    <!-- Hosting -->
+    <section>
+      <h2 class="section-title">Domain & Hosting Intelligence</h2>
+      <div class="grid gap-4 sm:grid-cols-2">
+        <a href="https://securitytrails.com" class="tool-card">SecurityTrails</a>
+        <a href="https://www.bulkblacklist.com" class="tool-card">BulkBlacklist</a>
+        <a href="https://www.ipqualityscore.com" class="tool-card">IPQualityScore</a>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- Footer -->
+  <footer class="border-t border-border py-10 text-center text-sm text-muted">
+    © 2026 Blue Teaming Cheat Sheet · URL Investigation
+  </footer>
+
+  <!-- Shared Styles (REQUIRED) -->
+  <style>
+    .tool-card {
+      display: block;
+      padding: 1rem 1.25rem;
+      border-radius: 0.75rem;
+      border: 1px solid #1e293b;
+      background: #020617;
+      transition: all 0.2s ease;
+    }
+    .tool-card:hover {
+      border-color: #3b82f6;
+      box-shadow: 0 10px 30px rgba(59, 130, 246, 0.15);
+      transform: translateY(-2px);
+    }
+    .section-title {
+      font-size: 1.5rem;
+      font-weight: 600;
+      margin-bottom: 1rem;
+    }
+  </style>
+
+</body>
+</html>

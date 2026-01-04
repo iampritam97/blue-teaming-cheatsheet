@@ -1,0 +1,271 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Blue Teaming Cheat Sheet</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+  <!-- Tailwind CDN -->
+  <script src="https://cdn.tailwindcss.com"></script>
+
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            bg: "#0f172a",
+            card: "#020617",
+            text: "#e5e7eb",
+            muted: "#94a3b8",
+            accent: "#3b82f6",
+            border: "#1e293b"
+          }
+        }
+      }
+    }
+  </script>
+</head>
+
+<body class="bg-bg text-text antialiased">
+
+  <!-- Header -->
+  <header class="sticky top-0 z-50 backdrop-blur border-b border-border bg-bg/80">
+    <div class="max-w-6xl mx-auto px-6 py-4 flex justify-between items-center">
+      <div class="flex items-center gap-2">
+        <span class="text-xl">🛡️</span>
+        <h1 class="text-sm font-semibold tracking-wide uppercase">
+          Blue Teaming Cheat Sheet
+        </h1>
+      </div>
+      <nav class="space-x-6 text-sm text-muted">
+        <a href="index.html" class="hover:text-accent transition">Home</a>
+        <a href="soc-playbooks.html" class="hover:text-accent transition">Playbooks</a>
+        <a href="incident-response-cheatsheet.html" class="hover:text-accent transition">IR</a>
+        <a href="mitre-mapping.html" class="hover:text-accent transition">MITRE</a>
+      </nav>
+    </div>
+  </header>
+
+  <!-- Hero -->
+<!-- Hero -->
+<section class="max-w-5xl mx-auto px-6 pt-20 pb-20">
+
+  <div class="text-center mb-10">
+    <h2 class="text-4xl md:text-5xl font-semibold mb-4 leading-tight">
+      Blue Teaming Cheat Sheet
+    </h2>
+    <p class="text-muted max-w-3xl mx-auto text-lg">
+      A practical, analyst-first knowledge base for
+      <span class="text-text">investigations</span>,
+      <span class="text-text">incident response</span>,
+      and <span class="text-text">threat intelligence</span>
+      used in real SOC environments.
+    </p>
+  </div>
+
+  <!-- Hero Stats / Capabilities -->
+  <div class="grid gap-4 sm:grid-cols-2 lg:grid-cols-4 mt-12">
+
+    <div class="hero-card">
+      <div class="icon">🔍</div>
+      <div>
+        <h4>Investigate</h4>
+        <p>IP, URL, Email, Hash & Malware analysis</p>
+      </div>
+    </div>
+
+    <div class="hero-card">
+      <div class="icon">🚨</div>
+      <div>
+        <h4>Respond</h4>
+        <p>SOC playbooks & IR quick reference</p>
+      </div>
+    </div>
+
+    <div class="hero-card">
+      <div class="icon">🧠</div>
+      <div>
+        <h4>Contextualize</h4>
+        <p>Threat intelligence & campaign tracking</p>
+      </div>
+    </div>
+
+    <div class="hero-card">
+      <div class="icon">🧩</div>
+      <div>
+        <h4>Map</h4>
+        <p>MITRE ATT&CK technique alignment</p>
+      </div>
+    </div>
+
+  </div>
+
+</section>
+
+
+  <!-- Main -->
+  <main class="max-w-5xl mx-auto px-6 pb-24 space-y-16">
+
+    <!-- INVESTIGATION -->
+    <section>
+      <h2 class="section-title mb-6">Investigation & Analysis</h2>
+
+      <div class="grid gap-5 sm:grid-cols-2">
+        <a href="ip-investigation.html" class="index-card">
+          <span class="icon">🔍</span>
+          <div>
+            <h3>IP Investigation</h3>
+            <p>Reputation, ASN, hosting, VPN/proxy, and abuse analysis.</p>
+          </div>
+        </a>
+
+        <a href="url-investigation.html" class="index-card">
+          <span class="icon">🌐</span>
+          <div>
+            <h3>URL Investigation</h3>
+            <p>Phishing URLs, redirects, hosting, and campaign tracking.</p>
+          </div>
+        </a>
+
+        <a href="email-investigation.html" class="index-card">
+          <span class="icon">✉️</span>
+          <div>
+            <h3>Email Investigation</h3>
+            <p>Header analysis, spoofing, attachments, and phishing.</p>
+          </div>
+        </a>
+
+        <a href="file-hash-investigation.html" class="index-card">
+          <span class="icon">🔐</span>
+          <div>
+            <h3>File Hash Investigation</h3>
+            <p>Hash reputation, malware classification, and attribution.</p>
+          </div>
+        </a>
+      </div>
+    </section>
+
+    <!-- MALWARE & TI -->
+    <section>
+      <h2 class="section-title mb-6">Malware & Threat Intelligence</h2>
+
+      <div class="grid gap-5 sm:grid-cols-2">
+        <a href="malware-analysis.html" class="index-card">
+          <span class="icon">🦠</span>
+          <div>
+            <h3>Malware Analysis</h3>
+            <p>Static & dynamic analysis, sandboxes, and behavior.</p>
+          </div>
+        </a>
+
+        <a href="threat-intelligence.html" class="index-card">
+          <span class="icon">🧠</span>
+          <div>
+            <h3>Threat Intelligence</h3>
+            <p>IOC correlation, campaigns, and actor tracking.</p>
+          </div>
+        </a>
+      </div>
+    </section>
+
+    <!-- RESPONSE & FRAMEWORKS -->
+    <section>
+      <h2 class="section-title mb-6">Incident Response & Frameworks</h2>
+
+      <div class="grid gap-5 sm:grid-cols-2">
+        <a href="soc-playbooks.html" class="index-card">
+          <span class="icon">🚨</span>
+          <div>
+            <h3>SOC Playbooks</h3>
+            <p>Step-by-step response workflows for common incidents.</p>
+          </div>
+        </a>
+
+        <a href="incident-response-cheatsheet.html" class="index-card">
+          <span class="icon">⚡</span>
+          <div>
+            <h3>IR Quick Cheat Sheet</h3>
+            <p>Triage, containment, eradication, and recovery.</p>
+          </div>
+        </a>
+
+        <a href="mitre-mapping.html" class="index-card sm:col-span-2">
+          <span class="icon">🧩</span>
+          <div>
+            <h3>MITRE ATT&CK Mapping</h3>
+            <p>Map indicators and alerts to ATT&CK techniques.</p>
+          </div>
+        </a>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- Footer -->
+  <footer class="border-t border-border py-10 text-center text-sm text-muted">
+    © 2026 Blue Teaming Cheat Sheet · Built for Threat hunters, IR & SOC Analysts
+  </footer>
+
+  <!-- Shared Styles -->
+  <style>
+    .section-title {
+      font-size: 1.5rem;
+      font-weight: 600;
+    }
+    .index-card {
+      display: flex;
+      gap: 1rem;
+      align-items: flex-start;
+      padding: 1.25rem;
+      border-radius: 0.75rem;
+      border: 1px solid #1e293b;
+      background: #020617;
+      transition: all 0.2s ease;
+    }
+    .index-card:hover {
+      border-color: #3b82f6;
+      box-shadow: 0 10px 30px rgba(59,130,246,0.15);
+      transform: translateY(-2px);
+    }
+    .index-card h3 {
+      font-weight: 600;
+      margin-bottom: 0.25rem;
+    }
+    .index-card p {
+      font-size: 0.875rem;
+      color: #94a3b8;
+    }
+    .icon {
+      font-size: 1.75rem;
+      line-height: 1;
+    }
+
+  .hero-card {
+    display: flex;
+    gap: 1rem;
+    align-items: flex-start;
+    padding: 1.25rem;
+    border-radius: 0.75rem;
+    border: 1px solid #1e293b;
+    background: #020617;
+  }
+
+  .hero-card h4 {
+    font-weight: 600;
+    margin-bottom: 0.25rem;
+  }
+
+  .hero-card p {
+    font-size: 0.875rem;
+    color: #94a3b8;
+  }
+
+  .hero-card .icon {
+    font-size: 1.75rem;
+    line-height: 1;
+  }
+
+  </style>
+
+</body>
+</html>
