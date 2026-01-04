@@ -1,26 +1,78 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
   <meta charset="UTF-8">
   <title>Blue Teaming Cheat Sheet</title>
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-  <!-- Dark hacker theme -->
-  <link rel="stylesheet" href="//cdn.jsdelivr.net/npm/docsify/themes/dark.css">
+  <!-- Clean Docsify Theme -->
+  <link rel="stylesheet" href="//cdn.jsdelivr.net/npm/docsify/themes/vue.css">
 
+  <!-- Subtle Custom Styling -->
+  <style>
+    /* Base typography */
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI",
+                   Roboto, Helvetica, Arial, sans-serif;
+    }
+
+    /* Content width */
+    .markdown-section {
+      max-width: 900px;
+    }
+
+    /* Headings */
+    .markdown-section h1,
+    .markdown-section h2,
+    .markdown-section h3 {
+      font-weight: 600;
+    }
+
+    /* Links */
+    .markdown-section a {
+      color: #2563eb;
+      text-decoration: none;
+    }
+
+    .markdown-section a:hover {
+      text-decoration: underline;
+    }
+
+    /* Sidebar clean look */
+    .sidebar {
+      border-right: 1px solid #e5e7eb;
+    }
+
+    .sidebar ul li a {
+      font-size: 14px;
+    }
+
+    /* Code blocks */
+    pre {
+      background: #f8fafc !important;
+    }
+
+    /* Search box */
+    .search input {
+      border-radius: 6px;
+    }
+  </style>
 </head>
+
 <body>
   <div id="app"></div>
 
   <script>
     window.$docsify = {
-      name: '🛡️ Blue Teaming Cheat Sheet',
+      name: 'Blue Teaming Cheat Sheet',
       repo: '',
       loadSidebar: true,
-      loadNavbar: true,
+      loadNavbar: false,     // cleaner
       subMaxLevel: 3,
-      search: 'auto',
-      themeColor: '#22c55e'
+      search: {
+        placeholder: 'Search investigations...',
+        noData: 'No results found',
+      }
     }
   </script>
 
