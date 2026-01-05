@@ -7,27 +7,39 @@
 
   <!-- Tailwind CDN -->
   <script src="https://cdn.tailwindcss.com"></script>
+<!-- Custom Font: IBM Plex Sans -->
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+
 
   <!-- Tailwind Theme (REQUIRED) -->
-  <script>
-    tailwind.config = {
-      theme: {
-        extend: {
-          colors: {
-            bg: "#0f172a",
-            card: "#020617",
-            text: "#e5e7eb",
-            muted: "#94a3b8",
-            accent: "#3b82f6",
-            border: "#1e293b"
-          }
+<script>
+  tailwind.config = {
+    theme: {
+      extend: {
+        fontFamily: {
+          sans: ['IBM Plex Sans', 'ui-sans-serif', 'system-ui']
+        },
+        
+        colors: {
+          bg: "#0f172a",
+          card: "#020617",
+          text: "#e5e7eb",
+          muted: "#94a3b8",
+          accent: "#3b82f6",
+          border: "#1e293b"
         }
       }
     }
-  </script>
+  }
+  
+</script>
+
+
 </head>
 
-<body class="bg-bg text-text antialiased">
+<body class="bg-bg text-text antialiased font-sans">
 
   <!-- Header -->
   <header class="sticky top-0 z-50 backdrop-blur border-b border-border bg-bg/80">
@@ -58,6 +70,149 @@
         or SHA256 hashes during malware, phishing, and endpoint investigations.
       </p>
     </div>
+    <!-- WHAT IS A FILE HASH -->
+<section class="mb-12">
+  <h2 class="section-title">What Is a File Hash?</h2>
+
+  <div class="grid gap-4">
+    <div class="tool-card">
+      A file hash is a <strong>fixed-length cryptographic fingerprint</strong>
+      generated from a file’s contents.
+    </div>
+    <div class="tool-card">
+      Even a <strong>1-byte change</strong> in the file results in a
+      completely different hash value.
+    </div>
+    <div class="tool-card">
+      Hashes are used to <strong>uniquely identify files</strong>,
+      verify integrity, and detect known malware.
+    </div>
+  </div>
+</section>
+<!-- HASH ALGORITHMS -->
+<section class="mb-12">
+  <h2 class="section-title">Common Hash Algorithms Used in SOC</h2>
+
+  <div class="grid gap-4 sm:grid-cols-2">
+    <div class="tool-card">
+      <strong>MD5</strong><br/>
+      Fast but cryptographically weak.<br/>
+      Still widely used for malware lookups.
+    </div>
+    <div class="tool-card">
+      <strong>SHA-1</strong><br/>
+      Stronger than MD5 but deprecated for security.<br/>
+      Common in legacy tools.
+    </div>
+    <div class="tool-card">
+      <strong>SHA-256</strong><br/>
+      Industry standard for malware identification.<br/>
+      Preferred for threat intelligence sharing.
+    </div>
+    <div class="tool-card">
+      <strong>SHA-512</strong><br/>
+      Rare in SOC workflows.<br/>
+      Mostly used in research contexts.
+    </div>
+  </div>
+</section>
+<!-- HASH EXAMPLES -->
+<section class="mb-12">
+  <h2 class="section-title">Example File Hashes</h2>
+
+  <div class="grid gap-4">
+    <div class="tool-card">
+      <strong>MD5</strong><br/>
+      <code>5d41402abc4b2a76b9719d911017c592</code>
+    </div>
+    <div class="tool-card">
+      <strong>SHA-1</strong><br/>
+      <code>2aae6c35c94fcfb415dbe95f408b9ce91ee846ed</code>
+    </div>
+    <div class="tool-card">
+      <strong>SHA-256</strong><br/>
+      <code>
+      b94d27b9934d3e08a52e52d7da7dabfac484efe37a5380ee9088f7ace2efcde9
+      </code>
+    </div>
+  </div>
+</section>
+<!-- HASH EXTRACTION COMMANDS -->
+<section class="mb-12">
+  <h2 class="section-title">Hash Extraction Commands (Windows & Linux)</h2>
+  <p class="text-muted mb-4">
+    These commands are commonly used by SOC analysts to calculate file hashes
+    directly from endpoints, forensic images, or malware samples.
+  </p>
+
+  <div class="grid gap-4 sm:grid-cols-2">
+
+    <!-- WINDOWS -->
+    <div class="tool-card">
+      <strong>Windows (Built-in)</strong><br/><br/>
+      <code>certutil -hashfile sample.exe MD5</code><br/>
+      <code>certutil -hashfile sample.exe SHA1</code><br/>
+      <code>certutil -hashfile sample.exe SHA256</code>
+      <p class="text-muted mt-2 text-sm">
+        Available by default on modern Windows systems.
+      </p>
+    </div>
+
+    <!-- POWERSHELL -->
+    <div class="tool-card">
+      <strong>Windows (PowerShell)</strong><br/><br/>
+      <code>Get-FileHash sample.exe</code><br/>
+      <code>Get-FileHash sample.exe -Algorithm SHA256</code>
+      <p class="text-muted mt-2 text-sm">
+        Preferred in PowerShell-based investigations.
+      </p>
+    </div>
+
+    <!-- LINUX -->
+    <div class="tool-card">
+      <strong>Linux / macOS</strong><br/><br/>
+      <code>md5sum sample.bin</code><br/>
+      <code>sha1sum sample.bin</code><br/>
+      <code>sha256sum sample.bin</code>
+      <p class="text-muted mt-2 text-sm">
+        Standard utilities available on most Unix-based systems.
+      </p>
+    </div>
+
+    <!-- OPENSSL -->
+    <div class="tool-card">
+      <strong>Cross-Platform (OpenSSL)</strong><br/><br/>
+      <code>openssl md5 sample.bin</code><br/>
+      <code>openssl sha1 sample.bin</code><br/>
+      <code>openssl sha256 sample.bin</code>
+      <p class="text-muted mt-2 text-sm">
+        Useful in restricted or minimal environments.
+      </p>
+    </div>
+
+  </div>
+</section>
+
+<!-- IMPORTANT LIMITATIONS -->
+<section class="mb-12">
+  <h2 class="section-title">Important Limitations of Hash-Based Detection</h2>
+
+  <div class="grid gap-4 sm:grid-cols-2">
+    <div class="tool-card">
+      Hashes fail against <strong>polymorphic or packed malware</strong>.
+    </div>
+    <div class="tool-card">
+      Attackers can easily change hashes by recompiling binaries.
+    </div>
+    <div class="tool-card">
+      Unknown hashes do <strong>not mean benign</strong>.
+    </div>
+    <div class="tool-card">
+      Hashes must be correlated with
+      <strong>behavior, network traffic, and execution context</strong>.
+    </div>
+  </div>
+</section>
 
     <!-- WHEN TO USE -->
     <section class="mb-12">
@@ -179,6 +334,10 @@
       font-weight: 600;
       margin-bottom: 0.75rem;
     }
+      code, pre {
+    font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace;
+    font-size: 0.875rem;
+  }
   </style>
 
 </body>

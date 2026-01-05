@@ -7,27 +7,37 @@
 
   <!-- Tailwind CDN -->
   <script src="https://cdn.tailwindcss.com"></script>
+<!-- Custom Font: IBM Plex Sans -->
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+
 
   <!-- Tailwind Theme (REQUIRED) -->
-  <script>
-    tailwind.config = {
-      theme: {
-        extend: {
-          colors: {
-            bg: "#0f172a",
-            card: "#020617",
-            text: "#e5e7eb",
-            muted: "#94a3b8",
-            accent: "#3b82f6",
-            border: "#1e293b"
-          }
+<script>
+  tailwind.config = {
+    theme: {
+      extend: {
+        fontFamily: {
+          sans: ['IBM Plex Sans', 'ui-sans-serif', 'system-ui']
+        },
+        
+        colors: {
+          bg: "#0f172a",
+          card: "#020617",
+          text: "#e5e7eb",
+          muted: "#94a3b8",
+          accent: "#3b82f6",
+          border: "#1e293b"
         }
       }
     }
-  </script>
+  }
+  
+</script>
 </head>
 
-<body class="bg-bg text-text antialiased">
+<body class="bg-bg text-text antialiased font-sans">
 
   <!-- Header -->
   <header class="sticky top-0 z-50 backdrop-blur border-b border-border bg-bg/80">
@@ -58,6 +68,113 @@
         alerts, and attacker behavior to MITRE ATT&CK techniques.
       </p>
     </div>
+    <!-- WHAT IS MITRE -->
+<section class="mb-12">
+  <h2 class="section-title">What Is MITRE ATT&CK?</h2>
+
+  <div class="grid gap-4">
+    <div class="tool-card">
+      MITRE ATT&CK is a <strong>globally adopted knowledge base</strong>
+      of real-world adversary tactics, techniques, and procedures (TTPs).
+    </div>
+    <div class="tool-card">
+      It is built from <strong>observed attacker behavior</strong>
+      across incidents, malware analysis, and threat research.
+    </div>
+    <div class="tool-card">
+      ATT&CK provides a <strong>common language</strong> for SOC analysts,
+      incident responders, red teams, and threat intelligence teams.
+    </div>
+  </div>
+</section>
+<!-- WHY MITRE MATTERS -->
+<section class="mb-12">
+  <h2 class="section-title">Why MITRE ATT&CK Matters for Blue Teams</h2>
+
+  <div class="grid gap-4 sm:grid-cols-2">
+    <div class="tool-card">
+      Helps analysts understand <strong>attacker intent</strong>,
+      not just isolated alerts.
+    </div>
+    <div class="tool-card">
+      Enables consistent incident classification
+      across SOC shifts and teams.
+    </div>
+    <div class="tool-card">
+      Reveals <strong>detection gaps</strong> across the attack lifecycle.
+    </div>
+    <div class="tool-card">
+      Supports threat hunting and proactive defense planning.
+    </div>
+  </div>
+</section>
+<!-- TACTICS VS TECHNIQUES -->
+<section class="mb-12">
+  <h2 class="section-title">Tactics vs Techniques</h2>
+
+  <div class="grid gap-4 sm:grid-cols-2">
+    <div class="tool-card">
+      <strong>Tactics</strong><br/>
+      The attacker’s <strong>goal</strong> or objective
+      (e.g., Initial Access, Persistence, Command & Control).
+    </div>
+    <div class="tool-card">
+      <strong>Techniques</strong><br/>
+      The <strong>method used</strong> to achieve that goal
+      (e.g., Phishing, PowerShell, Registry Run Keys).
+    </div>
+    <div class="tool-card">
+      One incident typically involves
+      <strong>multiple tactics and techniques</strong>.
+    </div>
+    <div class="tool-card">
+      Mapping only one technique may hide
+      the true scope of the attack.
+    </div>
+  </div>
+</section>
+<!-- HOW SOC USES MITRE -->
+<section class="mb-12">
+  <h2 class="section-title">How Analysts Use MITRE ATT&CK</h2>
+
+  <div class="grid gap-4">
+    <div class="tool-card">
+      Map alerts and indicators to ATT&CK techniques
+      to understand attacker behavior.
+    </div>
+    <div class="tool-card">
+      Use technique coverage to validate SIEM and EDR detections.
+    </div>
+    <div class="tool-card">
+      Identify missing detections across tactics such as
+      persistence, lateral movement, or exfiltration.
+    </div>
+    <div class="tool-card">
+      Communicate incidents clearly to stakeholders
+      using standardized terminology.
+    </div>
+  </div>
+</section>
+<!-- MITRE IS NOT LINEAR -->
+<section class="mb-12">
+  <h2 class="section-title">MITRE ATT&CK Is Not a Linear Kill Chain</h2>
+
+  <div class="grid gap-4">
+    <div class="tool-card">
+      Attackers do <strong>not</strong> always follow tactics
+      in a fixed or sequential order.
+    </div>
+    <div class="tool-card">
+      Some tactics may be skipped, repeated,
+      or occur simultaneously.
+    </div>
+    <div class="tool-card">
+      SOC analysts should focus on
+      <strong>observed behavior</strong>,
+      not assumed attack progression.
+    </div>
+  </div>
+</section>
 
     <!-- HOW TO USE -->
     <section class="mb-12">

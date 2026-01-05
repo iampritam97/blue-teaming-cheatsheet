@@ -7,27 +7,37 @@
 
   <!-- Tailwind CDN -->
   <script src="https://cdn.tailwindcss.com"></script>
+<!-- Custom Font: IBM Plex Sans -->
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+
 
   <!-- Tailwind Theme (REQUIRED) -->
-  <script>
-    tailwind.config = {
-      theme: {
-        extend: {
-          colors: {
-            bg: "#0f172a",
-            card: "#020617",
-            text: "#e5e7eb",
-            muted: "#94a3b8",
-            accent: "#3b82f6",
-            border: "#1e293b"
-          }
+<script>
+  tailwind.config = {
+    theme: {
+      extend: {
+        fontFamily: {
+          sans: ['IBM Plex Sans', 'ui-sans-serif', 'system-ui']
+        },
+        
+        colors: {
+          bg: "#0f172a",
+          card: "#020617",
+          text: "#e5e7eb",
+          muted: "#94a3b8",
+          accent: "#3b82f6",
+          border: "#1e293b"
         }
       }
     }
-  </script>
+  }
+  
+</script>
 </head>
 
-<body class="bg-bg text-text antialiased">
+<body class="bg-bg text-text antialiased font-sans">
 
   <!-- Header -->
   <header class="sticky top-0 z-50 backdrop-blur border-b border-border bg-bg/80">
@@ -58,6 +68,82 @@
         track threat campaigns, and understand adversary behavior.
       </p>
     </div>
+<!-- WHAT IS THREAT INTELLIGENCE -->
+<section class="mb-12">
+  <h2 class="section-title">What Is Threat Intelligence?</h2>
+
+  <div class="grid gap-4">
+    <div class="tool-card">
+      Threat Intelligence is <strong>evidence-based knowledge</strong> about
+      adversaries, their infrastructure, tools, techniques, and intent.
+    </div>
+    <div class="tool-card">
+      It is derived from analyzing indicators, campaigns, malware samples,
+      attacker behavior, and real-world incidents.
+    </div>
+    <div class="tool-card">
+      The primary goal is to support <strong>better detection, faster response,
+      and informed decision-making</strong> in security operations.
+    </div>
+  </div>
+</section>
+<!-- TYPES OF THREAT INTELLIGENCE -->
+<section class="mb-12">
+  <h2 class="section-title">Types of Threat Intelligence</h2>
+
+  <div class="grid gap-4 sm:grid-cols-2">
+    <div class="tool-card">
+      <strong>Strategic Intelligence</strong><br/>
+      High-level trends, threat landscape reports, and adversary motivations.
+      <span class="text-muted text-sm block mt-1">
+        Used by leadership and risk teams.
+      </span>
+    </div>
+
+    <div class="tool-card">
+      <strong>Operational Intelligence</strong><br/>
+      Campaigns, attack timelines, malware families, and actor activity.
+      <span class="text-muted text-sm block mt-1">
+        Used by SOC leads and IR teams.
+      </span>
+    </div>
+
+    <div class="tool-card">
+      <strong>Tactical Intelligence</strong><br/>
+      Indicators of Compromise (IPs, domains, URLs, hashes).
+      <span class="text-muted text-sm block mt-1">
+        Used directly in detections and blocking.
+      </span>
+    </div>
+
+    <div class="tool-card">
+      <strong>Technical Intelligence</strong><br/>
+      TTPs, exploits, tools, and malware behavior.
+      <span class="text-muted text-sm block mt-1">
+        Mapped to MITRE ATT&CK.
+      </span>
+    </div>
+  </div>
+</section>
+<!-- IOC VS INTELLIGENCE -->
+<section class="mb-12">
+  <h2 class="section-title">IOC vs Threat Intelligence</h2>
+
+  <div class="grid gap-4">
+    <div class="tool-card">
+      <strong>Indicators of Compromise (IOCs)</strong> are raw data points such as
+      IPs, domains, URLs, and file hashes.
+    </div>
+    <div class="tool-card">
+      <strong>Threat Intelligence</strong> provides context around IOCs —
+      who is using them, why, how, and as part of which campaign.
+    </div>
+    <div class="tool-card">
+      Blocking IOCs without context can lead to
+      <strong>false positives, missed attacks, or unnecessary disruption</strong>.
+    </div>
+  </div>
+</section>
 
     <!-- WHEN TO USE -->
     <section class="mb-12">

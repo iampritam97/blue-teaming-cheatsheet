@@ -7,27 +7,37 @@
 
   <!-- Tailwind CDN -->
   <script src="https://cdn.tailwindcss.com"></script>
+<!-- Custom Font: IBM Plex Sans -->
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+
 
   <!-- Tailwind Theme (REQUIRED) -->
-  <script>
-    tailwind.config = {
-      theme: {
-        extend: {
-          colors: {
-            bg: "#0f172a",
-            card: "#020617",
-            text: "#e5e7eb",
-            muted: "#94a3b8",
-            accent: "#3b82f6",
-            border: "#1e293b"
-          }
+<script>
+  tailwind.config = {
+    theme: {
+      extend: {
+        fontFamily: {
+          sans: ['IBM Plex Sans', 'ui-sans-serif', 'system-ui']
+        },
+        
+        colors: {
+          bg: "#0f172a",
+          card: "#020617",
+          text: "#e5e7eb",
+          muted: "#94a3b8",
+          accent: "#3b82f6",
+          border: "#1e293b"
         }
       }
     }
-  </script>
+  }
+  
+</script>
 </head>
 
-<body class="bg-bg text-text antialiased">
+<body class="bg-bg text-text antialiased font-sans">
 
   <!-- Header (SAME AS IP PAGE) -->
   <header class="sticky top-0 z-50 backdrop-blur border-b border-border bg-bg/80">

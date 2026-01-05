@@ -1,0 +1,227 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Domain Investigation Tools</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+  <!-- Tailwind CDN -->
+  <script src="https://cdn.tailwindcss.com"></script>
+
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            bg: "#0f172a",
+            card: "#020617",
+            text: "#e5e7eb",
+            muted: "#94a3b8",
+            accent: "#3b82f6",
+            border: "#1e293b"
+          }
+        }
+      }
+    }
+  </script>
+</head>
+
+<body class="bg-bg text-text antialiased">
+
+  <!-- Header -->
+  <header class="sticky top-0 z-50 backdrop-blur border-b border-border bg-bg/80">
+    <div class="max-w-6xl mx-auto px-6 py-4 flex justify-between items-center">
+      <div class="flex items-center gap-2">
+        <span class="text-xl">🛡️</span>
+        <h1 class="text-sm font-semibold tracking-wide uppercase">
+          Blue Teaming Cheat Sheet
+        </h1>
+      </div>
+      <nav class="space-x-6 text-sm text-muted">
+        <a href="index.html" class="hover:text-accent transition">Home</a>
+        <a href="soc-playbooks.html" class="hover:text-accent transition">Playbooks</a>
+        <a href="malware-analysis.html" class="hover:text-accent transition">Malware</a>
+      </nav>
+    </div>
+  </header>
+
+  <!-- Content -->
+  <main class="max-w-4xl mx-auto px-6 pt-16 pb-24">
+
+    <!-- Title -->
+    <div class="mb-12">
+      <a href="index.html" class="text-accent text-sm">← Back to Home</a>
+      <h1 class="text-4xl font-semibold mt-4 mb-3">🌐 Domain Investigation Tools</h1>
+      <p class="text-muted max-w-2xl">
+        Tools for domain WHOIS, DNS analysis, passive DNS, reputation checks,
+        phishing detection, and threat intelligence correlation.
+      </p>
+    </div>
+
+    <!-- WHOIS & Registration -->
+    <section class="mb-12">
+      <h2 class="text-2xl font-semibold mb-4">WHOIS & Registration</h2>
+      <p class="text-muted mb-6">
+        Identify domain ownership, registrar, creation date, and registration patterns.
+      </p>
+
+      <div class="grid gap-4 sm:grid-cols-2">
+        <a href="https://centralops.net/co/" target="_blank" class="tool-card">
+          CentralOps (WHOIS / DNS / Traceroute)
+        </a>
+        <a href="https://who.is/" target="_blank" class="tool-card">
+          WHO.IS
+        </a>
+        <a href="https://lookup.icann.org/" target="_blank" class="tool-card">
+          ICANN WHOIS Lookup
+        </a>
+        <a href="https://www.whoisxmlapi.com/" target="_blank" class="tool-card">
+          WhoisXML API
+        </a>
+        <a href="https://securitytrails.com/" target="_blank" class="tool-card">
+          SecurityTrails (Historical WHOIS)
+        </a>
+      </div>
+    </section>
+<!-- WHOIS History -->
+<section class="mb-12">
+  <h2 class="text-2xl font-semibold mb-4">WHOIS History</h2>
+  <p class="text-muted mb-6">
+    Track historical domain ownership, registrar changes, name server updates,
+    and registration patterns to identify malicious reuse and campaign links.
+  </p>
+
+  <div class="grid gap-4 sm:grid-cols-2">
+    <a href="https://securitytrails.com/" target="_blank" class="tool-card">
+      SecurityTrails (Historical WHOIS & DNS)
+    </a>
+    <a href="https://whoisxmlapi.com/" target="_blank" class="tool-card">
+      WhoisXML API (WHOIS History)
+    </a>
+    <a href="https://domainbigdata.com/" target="_blank" class="tool-card">
+      DomainBigData (Registrant Correlation)
+    </a>
+    <a href="https://www.whoxy.com/" target="_blank" class="tool-card">
+      Whoxy (WHOIS History)
+    </a>
+    <a href="https://www.domaintools.com/" target="_blank" class="tool-card">
+      DomainTools (WHOIS & Risk Scoring)
+    </a>
+  </div>
+</section>
+
+    <!-- DNS & Passive DNS -->
+    <section class="mb-12">
+      <h2 class="text-2xl font-semibold mb-4">DNS & Passive DNS</h2>
+      <p class="text-muted mb-6">
+        Analyze DNS records, hosting changes, historical resolutions, and infrastructure reuse.
+      </p>
+
+      <div class="grid gap-4 sm:grid-cols-2">
+        <a href="https://dnsdumpster.com/" target="_blank" class="tool-card">
+          DNSDumpster
+        </a>
+        <a href="https://securitytrails.com/" target="_blank" class="tool-card">
+          SecurityTrails (Passive DNS)
+        </a>
+        <a href="https://www.robtex.com/" target="_blank" class="tool-card">
+          Robtex
+        </a>
+        <a href="https://passivedns.mnemonic.no/" target="_blank" class="tool-card">
+          Mnemonic Passive DNS
+        </a>
+        <a href="https://bgp.he.net/" target="_blank" class="tool-card">
+          Hurricane Electric BGP Toolkit
+        </a>
+      </div>
+    </section>
+
+    <!-- Reputation & Threat Intelligence -->
+    <section class="mb-12">
+      <h2 class="text-2xl font-semibold mb-4">Reputation & Threat Intelligence</h2>
+
+      <div class="grid gap-4 sm:grid-cols-2">
+        <a href="https://www.virustotal.com" target="_blank" class="tool-card">
+          VirusTotal
+        </a>
+        <a href="https://otx.alienvault.com/browse/global/indicators" target="_blank" class="tool-card">
+          AlienVault OTX
+        </a>
+        <a href="https://talosintelligence.com" target="_blank" class="tool-card">
+          Cisco Talos
+        </a>
+        <a href="https://threatfox.abuse.ch/browse/" target="_blank" class="tool-card">
+          ThreatFox
+        </a>
+        <a href="https://pulsedive.com/" target="_blank" class="tool-card">
+          Pulsedive
+        </a>
+        <a href="https://ioc.one/" target="_blank" class="tool-card">
+          IOC.One
+        </a>
+      </div>
+    </section>
+
+    <!-- Phishing & Malicious Domain Detection -->
+    <section class="mb-12">
+      <h2 class="text-2xl font-semibold mb-4">Phishing & Malicious Domain Detection</h2>
+
+      <div class="grid gap-4 sm:grid-cols-2">
+        <a href="https://phishstats.info/" target="_blank" class="tool-card">
+          PhishStats
+        </a>
+        <a href="https://phishtank.org/" target="_blank" class="tool-card">
+          PhishTank
+        </a>
+        <a href="https://urlscan.io/" target="_blank" class="tool-card">
+          urlscan.io
+        </a>
+        <a href="https://openphish.com/" target="_blank" class="tool-card">
+          OpenPhish
+        </a>
+      </div>
+    </section>
+
+    <!-- Blacklist & Blocklists -->
+    <section>
+      <h2 class="text-2xl font-semibold mb-4">Blacklist & Blocklists</h2>
+
+      <div class="grid gap-4 sm:grid-cols-2">
+        <a href="https://mxtoolbox.com/SuperTool.aspx" target="_blank" class="tool-card">
+          MXToolbox
+        </a>
+        <a href="https://www.sucuri.net/sitecheck/" target="_blank" class="tool-card">
+          Sucuri SiteCheck
+        </a>
+        <a href="https://check.spamhaus.org/" target="_blank" class="tool-card">
+          Spamhaus Check
+        </a>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- Footer -->
+  <footer class="border-t border-border py-10 text-center text-sm text-muted">
+    © 2026 Blue Teaming Cheat Sheet · Domain Investigation
+  </footer>
+
+  <!-- Reusable Tool Card Style -->
+  <style>
+    .tool-card {
+      display: block;
+      padding: 1rem 1.25rem;
+      border-radius: 0.75rem;
+      border: 1px solid #1e293b;
+      background: #020617;
+      transition: all 0.2s ease;
+    }
+    .tool-card:hover {
+      border-color: #3b82f6;
+      box-shadow: 0 10px 30px rgba(59, 130, 246, 0.15);
+      transform: translateY(-2px);
+    }
+  </style>
+
+</body>
+</html>
